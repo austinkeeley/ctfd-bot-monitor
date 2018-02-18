@@ -13,11 +13,19 @@
       <table class="table">
         <thead>
           <th>Bot Name</th>
-          <th>Redis ID</th>
+          <th>Redis Key</th>
           <th>Last check in time</th>
           <th>Current Action</th>
         </thead>
         <tbody>
+          {% for bot_id, bot in bots.items() %}
+          <tr>
+            <td>{{ bot.name }}</td>
+            <td><code>{{ bot_id }}</code></td>
+            <td>{{ bot.checkin |humanize }}</td>
+            <td>{{ bot.current_action }}</td>
+          </tr>
+          {% endfor %}
         </tbody>
       </table>
     </div>
